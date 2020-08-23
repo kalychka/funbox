@@ -10,7 +10,8 @@ function Item({ item, onClick }) {
         classes.push('disable')
     }
     return (
-        <div className={classes.join(' ')} onClick={() => onClick(item.id)} key={item.id}>
+        <div className={ 'block ' + classes.join(' ')} onClick={() => onClick(item.id)} key={item.id}>
+            <div className="block-triangle"></div>
             <p>{item.title}</p>
         </div>
     )
