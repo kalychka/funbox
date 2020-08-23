@@ -4,13 +4,13 @@ import {render} from 'react-dom'
 import './style.scss'
 
 import Block from './components/block.jsx'
-import { func } from 'prop-types'
+
 
 function App() {
     let [content, setContent] = React.useState( [
-        {id: 1, title: 'с фуа-гра', existence: true, select: false},
-        {id: 2, title: 'с рыбой', existence: true, select: false},
-        {id: 3, title: 'с курой', existence: false, select: false},
+        {id: 1, title: 'с фуа-гра', existence: true, select: false, disable: false},
+        {id: 2, title: 'с рыбой', existence: true, select: false, disable: false},
+        {id: 3, title: 'с курой', existence: false, select: false, disable: true},
     ])
 
     function Selected(id) {
@@ -18,7 +18,9 @@ function App() {
             content.map(item => {
                 if (item.id === id) {
                     item.select = !item.select
+                    console.log('test', item)
                 }
+                
                 return item
             })
             

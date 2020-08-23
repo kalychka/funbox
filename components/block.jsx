@@ -1,17 +1,13 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import Item from './item.jsx'
 
-function Block({onClick, content}) { 
-      
+function Block(props) {  
     return (
-        content.map(content => {
-            return (
-            <div className="block" onClick={() => onClick(content.id)} key={content.id}>
-                <p>{content.title}</p>
-            </div>
-            )
+        props.content.map(item => {
+            return <Item item={item} key={item.id} onClick={props.onClick} />
         })
-    )    
+    )       
 }
 
 Block.propTypes = {
