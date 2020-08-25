@@ -12,6 +12,8 @@ function App() {
     let [content, setContent] = React.useState( [
 
         {id: 1,
+        suptitle: 'Сказочное заморское яство',
+        hovered: false,
         title: 'с фуа-гра',
         portion: '10 порций',
         give: 'мышь в подарок',
@@ -22,6 +24,8 @@ function App() {
         disable: false},
 
         {id: 2,
+        suptitle: 'Сказочное заморское яство',
+        overed: false,
         title: 'с рыбой',
         portion: '40 порций',
         give: '2 мыши в подарок',
@@ -32,6 +36,8 @@ function App() {
         disable: false},
 
         {id: 3,
+        suptitle: 'Сказочное заморское яство',
+        overed: false,
         title: 'с курой',
         portion: '100 порций',
         give: '5 мышей в подарок',
@@ -56,9 +62,26 @@ function App() {
         )
     }
 
+    function Hover(id) {
+        setContent(
+            content.map(item => {
+                if (item.id === id && item.select === true) {
+                    item.suptitle = 'Котэ не одобряет?',
+                    item.hovered = true
+                }
+                return item
+            })  
+        )
+    
+    }
+
     return (
         <div className="wrapper">
-            <Block content={content} onClick={Selected} />
+            <h2 className="title">Ты сегодня покормил кота?</h2>
+            <div className="block-list">
+                <Block content={content} onClick={Selected} onMouseLeave={Hover} />
+            </div>
+            
         </div>
     )
 }

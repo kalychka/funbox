@@ -13,6 +13,8 @@ h1 {
 h2 {
     font-family: 'Exo';
     font-size: 2.25rem;
+    color: white;
+    margin: 0;
 }
 
 ul {
@@ -21,16 +23,23 @@ ul {
 }
 
 .wrapper {
-    display: flex;
-    justify-content: space-around;
-    column-gap: 80px;
-    row-gap: 80px;
-    flex-wrap: wrap;
-    align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    padding: 65px 0;
     background-image: url(./images/bg.png);
     background-position: center;
+    .title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .block-list {
+        display: flex;
+        justify-content: center;
+        column-gap: 80px;
+        row-gap: 80px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
     .block {
         position: relative;
         width: 320px;
@@ -48,12 +57,12 @@ ul {
         cursor: pointer;
         &::before{
             position: absolute;
-            top: 16px;
+            top: 15px;
             left: -10px;
             transform: rotate(-45deg);
             content: '';
             display: block;
-            width: 60px;
+            width: 55px;
             height: 4px;
             background-color: #2ea8e6;
         }
@@ -117,6 +126,10 @@ ul {
         }
     }
 
+    .suptitle_red {
+        color: #d91667;
+    }
+
     .block__wrapper__subtitle_selected {
         visibility: hidden;
         position: absolute;
@@ -149,11 +162,11 @@ ul {
     .block__triangle {
         position: absolute;
         z-index: 2;
-        top: -70px;
-        left: -49px;
+        top: -24px;
+        left: -10px;
         transform: rotate(45deg);
-        width: 70px;
-        height: 140px;
+        width: 30px;
+        height: 60px;
         background-image: url(./images/bg.png);
         background-position: 0% 100%;
         background-size: contain;
@@ -162,7 +175,10 @@ ul {
     
 }
 
-.disable {
+.wrapper .disable {
+    p, li {
+        color: #b3b3b3;
+    }
     &::after {
         content: '';
         position: absolute;
@@ -182,5 +198,13 @@ ul {
     & ~ .block__wrapper__subtitle_disable {
         visibility: visible;
         position: relative;
+    }
+    .block__size {
+        background-color: #b3b3b3;
+    }
+
+    .block__title h1,
+    .block__title span {
+        color: #b3b3b3;
     }
 }

@@ -7,7 +7,7 @@ function Block(props) {
     return (
         props.content.map(item => {
             return (     
-                <Item item={item} key={item.id} onClick={props.onClick} />    
+                <Item item={item} key={item.id} onClick={props.onClick} onMouseLeave={props.onMouseLeave} />    
             )
         })
     )       

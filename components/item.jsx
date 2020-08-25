@@ -1,10 +1,11 @@
 import React from 'react'
 
-function Item({ item, onClick }) {
+function Item({ item, onClick, onMouseLeave }) {
+
     const classes = []
     const selected = []
     const hidden = []
-    const disable = []
+    const selectedColor = []
 
     if (item.select === true && item.disable == false) {
         classes.push('block-selected')
@@ -14,16 +15,19 @@ function Item({ item, onClick }) {
     if (item.disable === true) {
         classes.push('disable')
     }
-
-    
-
+    if ( item.hovered === true ) {
+        selectedColor.push('suptitle_red')
+    }
 
     return (
         <div className="block__wrapper">
-            <div className={ 'block ' + classes.join(' ')} onClick={() => onClick(item.id)} key={item.id}>
+            <div className={ 'block ' + classes.join(' ')} onClick={ () => onClick(item.id) } onMouseLeave={ () => onMouseLeave(item.id) } key={item.id}>
                 <div className="block__triangle"></div>
                 
-                <p>Сказочное заморское яство</p>
+                <p className={selectedColor.join(' ')}>
+                    {item.suptitle}
+                </p>
+
                 <div className="block__title">
                     <h1>Нямушка</h1>
                     <span>{item.title}</span>
@@ -45,7 +49,7 @@ function Item({ item, onClick }) {
                 </div>
                
             </div>
-            <p className={ 'block__wrapper__subtitle' + ' ' + hidden.join(' ') } >Чего сидишь? Порадуй котэ,<a>купи.</a></p>
+            <p className={ 'block__wrapper__subtitle' + ' ' + hidden.join(' ') } onClick={ () => onClick(item.id) } >Чего сидишь? Порадуй котэ,<a href="#">купи.</a></p>
             <p className={ 'block__wrapper__subtitle_selected' + ' ' + selected.join(' ') } >
                 {item.subtitle}
             </p>
