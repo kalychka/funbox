@@ -22,6 +22,7 @@ function Item({ item, onClick }) {
         <div className="block__wrapper">
             <div className={ 'block ' + classes.join(' ')} onClick={() => onClick(item.id)} key={item.id}>
                 <div className="block__triangle"></div>
+                
                 <p>Сказочное заморское яство</p>
                 <div className="block__title">
                     <h1>Нямушка</h1>
@@ -42,12 +43,13 @@ function Item({ item, onClick }) {
                     <p>{item.size}</p>
                     <span>кг</span>
                 </div>
+               
             </div>
             <p className={ 'block__wrapper__subtitle' + ' ' + hidden.join(' ') } >Чего сидишь? Порадуй котэ,<a>купи.</a></p>
             <p className={ 'block__wrapper__subtitle_selected' + ' ' + selected.join(' ') } >
                 {item.subtitle}
             </p>
-            <p className={ 'block__wrapper__subtitle_disable' + ' ' + hidden.join(' ')}>
+            <p className="block__wrapper__subtitle_disable">
                 Печалька, {item.title} закончился
             </p>
         </div>
