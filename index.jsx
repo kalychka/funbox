@@ -16,6 +16,7 @@ function App() {
         portion: '10 порций',
         give: 'мышь в подарок',
         size: '0,5',
+        subtitle: 'Печень утки разварная с артишоками.',
         existence: true,
         select: false,
         disable: false},
@@ -25,6 +26,7 @@ function App() {
         portion: '40 порций',
         give: '2 мыши в подарок',
         size: '2',
+        subtitle: 'Головы щучьи с чесноком да свежайшая семгушка.',
         existence: true,
         select: false,
         disable: false},
@@ -34,6 +36,7 @@ function App() {
         portion: '100 порций',
         give: '5 мышей в подарок',
         size: '5',
+        subtitle: 'Филе из цыплят с трюфелями в больоне.',
         reviews: 'Заказчик доволен',
         existence: false,
         select: false,
@@ -46,9 +49,7 @@ function App() {
             content.map(item => {
                 if (item.id === id) {
                     item.select = !item.select
-                    console.log('test', item)
                 }
-                
                 return item
             })
             

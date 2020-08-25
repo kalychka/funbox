@@ -102,6 +102,41 @@ ul {
             }
         }
     }
+
+    .block__wrapper__subtitle,
+    .block__wrapper__subtitle_selected,
+    .block__wrapper__subtitle_disable {
+        text-align: center;
+        font-size: 0.8125rem;
+        color: white;
+        margin-top: 10px;
+        a {
+            color: #1698d9;
+            text-decoration-style: dashed;
+        }
+    }
+
+    .block__wrapper__subtitle_selected {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .block__wrapper__subtitle_disable {
+        visibility: hidden;
+        position: absolute;
+        color: #ffff66;
+    }
+
+    .visible {
+        visibility: visible;
+        position: relative;
+    }
+
+    .hidden {
+        visibility: hidden;
+        position: absolute;
+    }
+
     .block-selected {
         border-color: #d91667;
         .block__size,
@@ -127,4 +162,12 @@ ul {
 
 .disable {
     opacity: 0.25;
+    & ~ .block__wrapper__subtitle {
+        visibility: hidden;
+        position: absolute;
+    }
+    & ~ .block__wrapper__subtitle_disable {
+        visibility: visible;
+        position: relative;
+    }
 }
